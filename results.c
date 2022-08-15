@@ -5,8 +5,6 @@ typedef struct Voters
     long long voterid;
     int vote;
 } Voter;
-int votersnum = 10;
-
 int get_int_len(long long value)
 {
     int l = 1;
@@ -86,7 +84,7 @@ int main()
     printf("%s ", ((a == b) ? "Tie" : ((a > b) ? "A wins" : "B wins")));
     if (a != b)
     {
-        printf("with %.2f%% votes", (((a>b)?a:b)/(float)votersnum)*100);
+        printf("with %.2f%% votes", (((a>b)?a:b)/(float)records)*100);
     }
     return 0;
 }
