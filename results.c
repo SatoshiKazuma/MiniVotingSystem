@@ -37,10 +37,10 @@ int main()
 
         if (read == 3)
             records++;
-        if (read != 3 && !feof(file))
+        if ((read != 3) && !feof(file))
         {
-            printf("File formar error\n");
-            return 1;
+            printf("File formar error on index[%d]\n", records);
+            continue;
         }
         if (ferror(file))
         {
@@ -49,7 +49,7 @@ int main()
         }
     } while (!feof(file));
     fclose(file);
-    printf("%d records read\n\n\n", records);
+    printf("%d votes read\n\n\n", records);
     // for (int i = 0; i < records; i++)
     // {
     //     printf("%s %lld %d",
@@ -58,11 +58,11 @@ int main()
     //            voter[i].vote);
     //     printf("\n");
     // }
-    // perfectly fine
     for (int i = 0; i < records; i++)
     {
         if (get_int_len(voter[i].voterid) != 12)
         {
+            printf("Voter ID [%lld] is not valid (vote invalid)\n", voter[i].voterid);
             continue;
         }
         else
@@ -84,7 +84,7 @@ int main()
     printf("%s ", ((a == b) ? "Tie" : ((a > b) ? "A wins" : "B wins")));
     if (a != b)
     {
-        printf("with %.2f%% votes", (((a>b)?a:b)/(float)records)*100);
+        printf("with %.2f%% votes", (((a > b) ? a : b) / (float)records) * 100);
     }
     return 0;
 }
