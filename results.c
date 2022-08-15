@@ -65,7 +65,7 @@ int main()
     {
         if (get_int_len(voter[i].voterid) != 12)
         {
-            return 1;
+            continue;
         }
         else
         {
