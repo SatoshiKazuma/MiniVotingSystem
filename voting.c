@@ -7,7 +7,7 @@ typedef struct Voters
     long long voterid;
     int vote;
 } Voter;
-int max_voters = 13;
+int max_voters;
 
 int main()
 {
@@ -18,12 +18,15 @@ int main()
         printf("Error opening file.\n");
         return 1;
     }
+    printf("Welcome to MiniVote, a voting system developed by Sairamkumar M & Tenzin Tsering.\nPlease select the number of voters.\n");
+    scanf("%d",&max_voters);
     Voter voters[max_voters];
     // taking input
     int attendees = 0;
     char cont = 'Y';
-    while (attendees < 3 && (cont == 'Y' || cont == 'y'))
+    while (attendees < max_voters && (cont == 'Y' || cont == 'y'))
     {
+        printf("\nVoter No: %d\n",attendees+1);
         printf("______________________________\n");
         printf("Enter your name : ");
         scanf("  %[^\n]s", voters[attendees].name);
@@ -33,7 +36,7 @@ int main()
         scanf("%d", &voters[attendees].vote);
         printf("______________________________\n");
         attendees++;
-        if (attendees < 3)
+        if (attendees < max_voters)
         {
             printf("\nDo you want to continue? [Y/N]\n");
             scanf(" %c", &cont);
