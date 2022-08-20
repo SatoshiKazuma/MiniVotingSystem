@@ -50,14 +50,6 @@ int main()
     } while (!feof(file));
     fclose(file);
     printf("%d votes read\n\n\n", records);
-    // for (int i = 0; i < records; i++)
-    // {
-    //     printf("%s %lld %d",
-    //            voter[i].name,
-    //            voter[i].voterid,
-    //            voter[i].vote);
-    //     printf("\n");
-    // }
     for (int i = 0; i < records; i++)
     {
         if (get_int_len(voter[i].voterid) != 12)
