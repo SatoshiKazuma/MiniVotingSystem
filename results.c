@@ -49,7 +49,7 @@ int main()
         }
     } while (!feof(file));
     fclose(file);
-    printf("%d votes read\n\n\n", records);
+    printf("\n%d votes read\n\n", records);
     for (int i = 0; i < records; i++)
     {
         if (get_int_len(voter[i].voterid) != 12)
